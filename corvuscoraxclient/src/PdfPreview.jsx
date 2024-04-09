@@ -10,27 +10,40 @@ const PdfPreview = () => {
     const [pdfPath, setPdfPath] = useState(null);
     const [pdfIsLoading, setPdfIsLoading ] = useState(false);
     const [uploadError, setUploadError] = useState(null);
+    const [validationStatus, setValidationStatus] = useState(null);
 
     const handleChange = async (event) => {
         const selectedFile = event.target.files[0];
+
+        if (selectedFile.type !== 'application/pdf') {
+            alert('Please select a valid PDF file');
+            return; 
+        }
+
         console.log("File Selected:", selectedFile);
         setFile(selectedFile);
         console.log("file state after setFile:", file);  // Verify state change
         
-        // const formData = new FormData(); 
-        // console.log('File before append:', file); // Log file details
-        // formData.append('file', selectedFile);
-
-        // console.log("Before submission (detailed):", formData.get('file'), file);  // More Detail!
-        // console.log(formData); // Log the entire FormData structure
-      
-
         setFileKey(fileKey + 1);
-        handleSubmit(event);
+        // handleSubmit(event);
+        if(!pdfPath) {
+            handleSubmit();
+        }
+
+        try {
+            const validationResult = await validatePDF(selectedFile);
+            setValidationStatus(validationResult.isValid ? 'success' : 'error')
+        } catch(error) {
+            console.error("Validation error:", error);
+            setValidationStatus('error');
+        }
     };
 
     const handleSubmit = async () => {
         // event.preventDefault();
+        if (!file) {
+            return;
+        }
 
         setUploadError(null);
         setPdfIsLoading(true);
@@ -63,6 +76,8 @@ const PdfPreview = () => {
             setPdfIsLoading(false);
             setUploadError(error.message);
         }
+        console.dir(file);  // Inspect the entire file object
+        console.dir(formData); // Inspect the entire FormData object
     }; 
 
     useEffect(() => {
@@ -70,21 +85,45 @@ const PdfPreview = () => {
             handleSubmit();
         }
     }, [file]);
+    // }, []);
+
+
+    const validatePDF = async (file, pdfPath) => {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('pdf_path', pdfPath);
+
+        const response = await fetch('http://localhost:5000/pdf/validate-pdf', {
+            method: 'POST',
+            body: formData
+        });
+
+        if(!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || "File validation failed!");
+        }
+        return await response.json();
+    }
+
 
     const onDocumentLoadSuccess = ({ numPages }) => {
-        setNumPages(numPages);
+        // setNumPages(numPages);
         console.log("PDF Loaded. Pages:", numPages);
     }
 
+    console.log("pdfPath Received:", pdfPath);
     return (
         <div>
         <input type="file" onChange={handleChange} />
         {uploadError && <p style={{ color: 'red' }}>{uploadError}</p>} 
         {pdfIsLoading && <p>Loading PDF...</p>}
-       
+        
+
        {/* Only render if we have a `pdfPath` from the backend */}
-        {pdfPath && ( 
-          <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}> 
+        {/* {pdfPath && (  */}
+        {validationStatus === 'success' && (
+        <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+        {/*    <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}>  */}
             {Array.from(new Array(numPages), (el, index) => (
               <Page key={`page_${index + 1}`} pageNumber={index + 1} />
             ))}
@@ -94,4 +133,4 @@ const PdfPreview = () => {
       );
     };
 
-export default PdfPreview;
+export default PdfPreview; 
