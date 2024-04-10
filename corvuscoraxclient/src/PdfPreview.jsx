@@ -20,9 +20,9 @@ const PdfPreview = () => {
             return; 
         }
 
-        console.log("File Selected:", selectedFile);
+        console.log("File Selected[hanldeChange]:", selectedFile);
         setFile(selectedFile);
-        console.log("file state after setFile:", file);  // Verify state change
+        console.log("file state after setFile[handleChange]:", file);
         
         setFileKey(fileKey + 1);
         // handleSubmit(event);
@@ -34,41 +34,46 @@ const PdfPreview = () => {
 
     const handleSubmit = async () => {
         // event.preventDefault();
-        if (!file) {
-            return;
-        }
-        console.log('File size before sending:', file.size); 
+        if (!file) return;
+        console.log('File size before sending[handleSubmit]:', file.size); 
         setUploadError(null);
         setPdfIsLoading(true);
 
-        const formData = new FormData();
-        formData.append('file', file);
-
         try {
-            const response = await fetch('http://localhost:5000/pdf/upload-pdf', {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const response = await fetch('http://127.0.0.1:5000/pdf/upload-pdf', {
                 method: 'POST',
                 body: formData,
             });
             if(!response.ok){
                 const errorData = await response.json();
-                throw new Error(errorData.error || "Nieudane wczytywanie")
+                throw new Error(errorData.error || "Nieudane wczytywanie[handleSubmit]")
             }
 
-            const data = await response.json();
-            const filePath = data.pdf_path;
+            // const data = await response.json();
+            // const filePath = data.pdf_path;
+            const { pdf_path } = await response.json();
+            console.log('pdfPath after setting in [handleSubmit]:', pdf_path);
+            setPdfPath(pdf_path);
             setPdfIsLoading(false)
-            setPdfPath(filePath);
+
+            // test/log added: 16:31-10-04
+            console.log('pdfPath after setting in [handleSubmit:]', pdf_path);
                 
-            try {
-                // before it was 'selectedFile'
-                const validationResult = await validatePDF(file, filePath);
-                setValidationStatus(validationResult.isValid ? 'success' : 'error')
-            } catch(error) {
-                console.error("Validation error:", error);
-                setValidationStatus('error');
-            }
+            //changed log 18:10-10-04
+            await validatePDF(file, pdf_path);
+            // try {
+            //     // before it was 'selectedFile'
+            //     const validationResult = await validatePDF(file, filePath);
+            //     setValidationStatus(validationResult.isValid ? 'success' : 'error')
+            // } catch(error) {
+            //     console.error("Validation error:", error);
+            //     setValidationStatus('error');
+            // }
         } catch (error) {
-            console.error("Error communicating with backend:", error);
+            console.error("Error communicating with backend[handleSubmit]:", error);
             setPdfIsLoading(false);
             setUploadError(error.message);
         }
@@ -94,20 +99,20 @@ const PdfPreview = () => {
     // },[file, pdfPath]);
 
     const validatePDF = async (file, pdfPath) => {
-        console.log('pdfPath in validatePDF:', pdfPath);
-        console.log('file in validatePDF:', file);
+        console.log('pdfPath received by [validatePDF]:', pdfPath);
+        console.log('file in [validatePDF] - file:', file);
         const formData = new FormData();
         formData.append('file', file);
         formData.append('pdf_path', pdfPath);
 
-        const response = await fetch('http://localhost:5000/pdf/validate-pdf', {
+        const response = await fetch('http://127.0.0.1:5000/pdf/validate-pdf', {
             method: 'POST',
             body: formData
         });
 
         if(!response.ok) {
             const errorData = await response.json();
-            throw new Error(errorData.error || "File validation failed!");
+            throw new Error(errorData.error || "File validation failed[validatePDF]!");
         }
         return await response.json();
     }
@@ -118,7 +123,7 @@ const PdfPreview = () => {
         console.log("PDF Loaded. Pages:", numPages);
     }
 
-    console.log("pdfPath Received:", pdfPath);
+    console.log("pdfPath Received[before MAIN return]:", pdfPath);
     return (
         <div>
         {/* <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
