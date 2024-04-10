@@ -26,17 +26,10 @@ const PdfPreview = () => {
         
         setFileKey(fileKey + 1);
         // handleSubmit(event);
-        if(!pdfPath) {
-            handleSubmit();
-        }
-
-        try {
-            const validationResult = await validatePDF(selectedFile);
-            setValidationStatus(validationResult.isValid ? 'success' : 'error')
-        } catch(error) {
-            console.error("Validation error:", error);
-            setValidationStatus('error');
-        }
+        // if(!pdfPath) {
+        //     await handleSubmit();
+        // }
+        
     };
 
     const handleSubmit = async () => {
@@ -44,17 +37,12 @@ const PdfPreview = () => {
         if (!file) {
             return;
         }
-
+        console.log('File size before sending:', file.size); 
         setUploadError(null);
         setPdfIsLoading(true);
 
         const formData = new FormData();
         formData.append('file', file);
-
-    console.log("file state inside handleSubmit:", file); 
-    console.log("Before submission:", file, formData.get('file'));
-    console.log(formData.get('file')); // Inspect the file data
-    console.log(formData); // Inspect the entire FormData structure
 
         try {
             const response = await fetch('http://localhost:5000/pdf/upload-pdf', {
@@ -70,7 +58,15 @@ const PdfPreview = () => {
             const filePath = data.pdf_path;
             setPdfIsLoading(false)
             setPdfPath(filePath);
-
+                
+            try {
+                // before it was 'selectedFile'
+                const validationResult = await validatePDF(file, filePath);
+                setValidationStatus(validationResult.isValid ? 'success' : 'error')
+            } catch(error) {
+                console.error("Validation error:", error);
+                setValidationStatus('error');
+            }
         } catch (error) {
             console.error("Error communicating with backend:", error);
             setPdfIsLoading(false);
@@ -78,6 +74,8 @@ const PdfPreview = () => {
         }
         console.dir(file);  // Inspect the entire file object
         console.dir(formData); // Inspect the entire FormData object
+
+        setFile(null);
     }; 
 
     useEffect(() => {
@@ -85,10 +83,19 @@ const PdfPreview = () => {
             handleSubmit();
         }
     }, [file]);
-    // }, []);
-
+    // useEffect(() => {
+    //     if (file && pdfPath) {
+    //         const doValidation = async() => {
+    //             const validationResult = await validatePDF(file, pdfPath);
+    //             setValidationStatus(validationResult.isValid ? 'success':'error');
+    //         };
+    //         doValidation();
+    //     }
+    // },[file, pdfPath]);
 
     const validatePDF = async (file, pdfPath) => {
+        console.log('pdfPath in validatePDF:', pdfPath);
+        console.log('file in validatePDF:', file);
         const formData = new FormData();
         formData.append('file', file);
         formData.append('pdf_path', pdfPath);
@@ -114,20 +121,27 @@ const PdfPreview = () => {
     console.log("pdfPath Received:", pdfPath);
     return (
         <div>
+        {/* <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+            {Array.from(new Array(numPages), (el, index) => (
+              <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+            ))}
+        </Document> */}
+
         <input type="file" onChange={handleChange} />
         {uploadError && <p style={{ color: 'red' }}>{uploadError}</p>} 
         {pdfIsLoading && <p>Loading PDF...</p>}
+        
         
 
        {/* Only render if we have a `pdfPath` from the backend */}
         {/* {pdfPath && (  */}
         {validationStatus === 'success' && (
-        <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
-        {/*    <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}>  */}
+        // <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+        <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}> 
             {Array.from(new Array(numPages), (el, index) => (
               <Page key={`page_${index + 1}`} pageNumber={index + 1} />
             ))}
-          </Document>
+        </Document>
         )}
       </div>
       );
