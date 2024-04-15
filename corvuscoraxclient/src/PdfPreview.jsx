@@ -92,7 +92,9 @@ const PdfPreview = () => {
         // new log 21:56-11-04
         const validationResult = await response.json();
         setValidationStatus(validationResult.isValid ? 'success' : 'error');        
-        return await response.json();
+        // log 16:03-14-04
+        // return await response.json();
+        return response;
     }
 
 
