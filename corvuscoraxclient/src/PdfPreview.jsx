@@ -11,6 +11,8 @@ const PdfPreview = () => {
     const [pdfIsLoading, setPdfIsLoading ] = useState(false);
     const [uploadError, setUploadError] = useState(null);
     const [validationStatus, setValidationStatus] = useState(null);
+        // log 16-04:18:28
+    const [conversionStatus, setConversionStatus] = useState(null);
 
     const handleChange = async (event) => {
         const selectedFile = event.target.files[0];
@@ -93,10 +95,35 @@ const PdfPreview = () => {
         const validationResult = await response.json();
         setValidationStatus(validationResult.isValid ? 'success' : 'error');        
         // log 16:03-14-04
-        // return await response.json();
         return response;
     }
-
+    // new log: init22:58-15-04
+    const handleConversion = async () => {
+        // when conversion starts
+        setConversionStatus('pending');
+        // given
+        console.log('pdfPath received by & send in [conversionHandler]:', pdfPath);
+        const formData = new FormData();
+        formData.append('pdf_path', pdfPath);
+        try {
+            const response = await fetch('http://127.0.0.1:5000/pdf/convert-pdf', {
+                method: 'POST',
+                body: formData,
+            });
+            if (response.ok) {
+                console.log("CONVER MODE: valid")
+                // then
+                setConversionStatus('success');
+            } else {
+                console.error("Conversion failed:", response.statusText);
+            }
+        } catch(error) {
+            console.error("Error during conversion:", error);
+        } finally {
+            setConversionStatus('failed');
+        }
+        
+    };
 
     const onDocumentLoadSuccess = ({ numPages }) => {
         // setNumPages(numPages);
@@ -108,14 +135,16 @@ const PdfPreview = () => {
     console.log("validation status [before MAIN return", validationStatus);
     return (
         <div>
-
         <input type="file" onChange={handleChange} />
         {uploadError && <p style={{ color: 'red' }}>{uploadError}</p>} 
         {pdfIsLoading && <p>Loading PDF...</p>}
         
+        {/* new log - pdfconversionbutton; 23:15-15-04 */}
+        {validationStatus === 'success' && (
+            <button id="convert-button" onClick={handleConversion}>Convert to SVG & continue</button>
+        )}
         
-
-       {/* Only render if we have a `pdfPath` from the backend */}
+        {/* Only render if we have a `pdfPath` from the backend */}
         {/* {pdfPath && (  */}
         {pdfPath && validationStatus === 'success' && (
         // <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}> 
@@ -125,8 +154,8 @@ const PdfPreview = () => {
             ))}
         </Document>
         )}
-      </div>
-      );
-    };
+        </div>              
+    );
+};
 
 export default PdfPreview; 
