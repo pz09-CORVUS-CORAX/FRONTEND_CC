@@ -114,6 +114,16 @@ const PdfPreview = () => {
                 console.log("CONVER MODE: valid")
                 // then
                 setConversionStatus('success');
+                // edit 01:00-17-04
+                // fetchSvgDownload(data.svg_path)
+                const svgContent = await response.text();
+                const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('download', 'converted.svg');
+                document.body.appendChild(link);
+                link.click();
             } else {
                 console.error("Conversion failed:", response.statusText);
             }
@@ -122,8 +132,22 @@ const PdfPreview = () => {
         } finally {
             setConversionStatus('failed');
         }
-        
     };
+
+    // const fetchSvgDownload = async (svg_path) => {
+    //     try {
+    //         const response = await fetch(svg_path);
+    //         const blob = await response.blob();
+    //         const url = window.URL.createObjectURL(blob);
+    //         const link = document.createElement('a');
+    //         link.href = url;
+    //         link.setAttribute('download', 'converted.svg');
+    //         document.body.appendChild(link);
+    //         link.click();
+    //     } catch (error) {
+    //         console.error("Error fetching or downloading SVG", error);
+    //     }
+    // }
 
     const onDocumentLoadSuccess = ({ numPages }) => {
         // setNumPages(numPages);
