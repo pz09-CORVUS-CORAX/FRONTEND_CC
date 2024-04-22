@@ -3,7 +3,8 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import samplePDF from './pdfresizer.com-pdf-crop.pdf'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-const backendUrl = process.env.REACT_APP_BACKEND_API_URL;
+// const backendUrl = process.env.REACT_APP_BACKEND_API_URL;
+const backendUrl = import.meta.env.VITE_API_URL
 
 const PdfPreview = () => {
     const [file, setFile] = useState(null);
