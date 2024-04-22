@@ -3,6 +3,8 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import samplePDF from './pdfresizer.com-pdf-crop.pdf'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
+const backendUrl = process.env.REACT_APP_BACKEND_API_URL;
+
 const PdfPreview = () => {
     const [file, setFile] = useState(null);
     const [numPages, setNumPages] = useState(null);
@@ -39,7 +41,7 @@ const PdfPreview = () => {
             const formData = new FormData();
             formData.append('file', file);
 
-            const response = await fetch('http://127.0.0.1:5000/pdf/upload-pdf', {
+            const response = await fetch(`${backendUrl}/pdf/upload-pdf`, {
                 method: 'POST',
                 body: formData,
             });
@@ -81,7 +83,7 @@ const PdfPreview = () => {
         // formData.append('file', file);
         formData.append('pdf_path', pdfPath);
 
-        const response = await fetch('http://127.0.0.1:5000/pdf/validate-pdf', {
+        const response = await fetch(`${backendUrl}/pdf/validate-pdf`, {
             method: 'POST',
             body: formData
         });
@@ -106,7 +108,7 @@ const PdfPreview = () => {
         const formData = new FormData();
         formData.append('pdf_path', pdfPath);
         try {
-            const response = await fetch('http://127.0.0.1:5000/pdf/convert-pdf', {
+            const response = await fetch(`${backendUrl}/pdf/convert-pdf`, {
                 method: 'POST',
                 body: formData,
             });
@@ -133,21 +135,6 @@ const PdfPreview = () => {
             setConversionStatus('failed');
         }
     };
-
-    // const fetchSvgDownload = async (svg_path) => {
-    //     try {
-    //         const response = await fetch(svg_path);
-    //         const blob = await response.blob();
-    //         const url = window.URL.createObjectURL(blob);
-    //         const link = document.createElement('a');
-    //         link.href = url;
-    //         link.setAttribute('download', 'converted.svg');
-    //         document.body.appendChild(link);
-    //         link.click();
-    //     } catch (error) {
-    //         console.error("Error fetching or downloading SVG", error);
-    //     }
-    // }
 
     const onDocumentLoadSuccess = ({ numPages }) => {
         // setNumPages(numPages);
