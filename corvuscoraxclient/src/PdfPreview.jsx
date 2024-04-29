@@ -4,7 +4,11 @@ import samplePDF from './pdfresizer.com-pdf-crop.pdf'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 // const backendUrl = process.env.REACT_APP_BACKEND_API_URL;
-const backendUrl = import.meta.env.VITE_API_URL
+// const backendUrl = import.meta.env.VITE_API_URL;
+const backendUrl = import.meta.env.VITE_TEST_API_URL;
+console.log("#1URL being sent:", `${backendUrl}/api/pdf/upload-pdf`);
+console.log("All Vite env variables:", import.meta.env); // For debugging
+
 
 const PdfPreview = () => {
     const [file, setFile] = useState(null);
@@ -42,6 +46,7 @@ const PdfPreview = () => {
             const formData = new FormData();
             formData.append('file', file);
 
+            console.log("URL being sent:", `${backendUrl}/pdf/upload-pdf`); 
             const response = await fetch(`${backendUrl}/pdf/upload-pdf`, {
                 method: 'POST',
                 body: formData,
@@ -84,6 +89,7 @@ const PdfPreview = () => {
         // formData.append('file', file);
         formData.append('pdf_path', pdfPath);
 
+        console.log("URL being sent:", `${backendUrl}/pdf/upload-pdf`); 
         const response = await fetch(`${backendUrl}/pdf/validate-pdf`, {
             method: 'POST',
             body: formData
@@ -109,22 +115,25 @@ const PdfPreview = () => {
         const formData = new FormData();
         formData.append('pdf_path', pdfPath);
         try {
+            console.log("URL being sent:", `${backendUrl}/pdf/upload-pdf`); 
             const response = await fetch(`${backendUrl}/pdf/convert-pdf`, {
                 method: 'POST',
                 body: formData,
             });
             if (response.ok) {
                 console.log("CONVER MODE: valid")
-                // then
+                // theng
                 setConversionStatus('success');
-                // edit 01:00-17-04
-                // fetchSvgDownload(data.svg_path)
-                const svgContent = await response.text();
-                const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+            // edit 01:00-17-04
+                // const svgContent = await response.text();
+                const gcodeContent = await response.text();
+            //changelog 23:05-29-04
+                // const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+                const blob = new Blob([gcodeContent], {type: 'text/plain' });
                 const url = window.URL.createObjectURL(blob);
                 const link = document.createElement('a');
                 link.href = url;
-                link.setAttribute('download', 'converted.svg');
+                link.setAttribute('download', 'converted.gcode');
                 document.body.appendChild(link);
                 link.click();
             } else {
