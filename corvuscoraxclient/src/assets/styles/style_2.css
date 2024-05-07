@@ -1,0 +1,19 @@
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans","Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 1.12rem;
+}
+
+body {
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.75;
+    
+    background-color: var(--dl-color-gray-white);
+}
+.page-scroll{
+  color: var(--dl-color-gray-900);
+   
+}

@@ -30,7 +30,7 @@
     align-items: center;
     flex-direction: column;
     background-size: cover;
-    background-image: url("public/playground_assets/BG1.jpg");
+    background-image: url("src/assets/images/BG1.jpg");
   }
   .home-bg {
     flex: 0 0 auto;
