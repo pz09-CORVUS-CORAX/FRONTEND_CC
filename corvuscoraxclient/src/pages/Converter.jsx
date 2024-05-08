@@ -19,7 +19,7 @@ function Converter() {
                 <p className="read-the-docs">
                     Click on the logos to learn more
                 </p>
-                <div className="App">
+                <div className="converter">
                     <h1>PDF PdfPreview</h1>
                     <PdfPreview />
                 </div>

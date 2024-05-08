@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/styles/style_1.css';
 import '../assets/styles/style_2.css';
 import '../assets/styles/style.css';
@@ -16,28 +17,39 @@ function Navbar() {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <a className="navbar-brand page-scroll" href="index.html">Z9</a>
+                            {/* <a className="navbar-brand page-scroll" href="index.html">Z9</a> */}
+                            <Link className="navbar-brand page-scroll" to="/">Z9</Link>
                         </div>
 
                         <div className="collapse navbar-collapse navbar-ex1-collapse">
                             <ul className="nav navbar-nav">
                                 <li className="hidden active">
-                                    <a className="page-scroll" href="index.html">Zespół 9</a>
+                                    {/* <a className="page-scroll" href="index.html">Zespół 9</a> */}
+                                    <Link className="page-scroll" to="/">Zespół 9</Link>
                                 </li>
                                 <li>
-                                    <a className="page-scroll" href="about.html">O Projekcie</a>
+                                    {/* <a className="page-scroll" href="about.html">O Projekcie</a> */}
+                                    <Link className="page-scroll" to="/about">O Projekcie</Link>
                                 </li>
                                 <li>
-                                    <a className="page-scroll" href="team.html">Raport Semestralny Zespołu</a>
+                                    {/* <a className="page-scroll" href="team.html">Raport Semestralny Zespołu</a> */}
+                                    <Link className="page-scroll" to="/team">Raport Semestralny Zespołu</Link>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="documentation.html">Dokumentacja</a>
+                                    {/* <a class="page-scroll" href="documentation.html">Dokumentacja</a> */}
+                                    <Link className="page-scroll" to="/documentation">Dokumentacja</Link>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="calendar.html">Harmonogram</a>
+                                    {/* <a class="page-scroll" href="calendar.html">Harmonogram</a> */}
+                                    <Link className="page-scroll" to="/calendar">Harmonogram</Link>
                                 </li>
                                 <li>
-                                    <a class="page-scroll" href="gallery.html">Galeria i Multimedia</a>
+                                    {/* <a class="page-scroll" href="gallery.html">Galeria i Multimedia</a> */}
+                                    <Link className="page-scroll" to="/gallery">Galeria i Multimedia</Link>
+                                </li>
+                                <li>
+                                    {/* <a class="page-scroll" href="gallery.html">Wypróbuj CNCodifier</a> */}
+                                    <Link className="page-scroll" to="/converter">Wypróbuj CNCodifier</Link>
                                 </li>
                             </ul>
                         </div>

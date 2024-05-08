@@ -1,4 +1,6 @@
 import React from 'react';
+import '../assets/styles/style_1.css';
+import '../assets/styles/style_2.css';
 import '../assets/styles/style.css';
 import '../assets/styles/Navbar.css';
 
