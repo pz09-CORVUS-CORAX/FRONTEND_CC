@@ -19,7 +19,7 @@ function IndexPage() {
           <div className="home-container05">
             <img
               alt="opiekunCzarkowski"
-              src='src/assets/images/Opiekun.jpg' // Adjust path if needed
+              src='public/images/Opiekun.jpg' // Adjust path if needed
               className="home-image1"
             />
             <span className="home-text06">Krzysztof Czarkowski</span>
@@ -29,7 +29,7 @@ function IndexPage() {
           <div className="home-container07">
               <img
                 alt="image"
-                src="public/playground_assets/biliniok.jpg"
+                src="public/images/biliniok.jpg"
                 className="home-image2"
               />
               <span className="home-text08">Jakub Biliński</span>
@@ -40,7 +40,7 @@ function IndexPage() {
             <div className="home-container08">
               <img
                 alt="image"
-                src="public/playground_assets/zeglin.jpg"
+                src="public/images/zeglin.jpg"
                 className="home-image3"
               />
               <span className="home-text12">Jakub Żegliński</span>
@@ -51,7 +51,7 @@ function IndexPage() {
             <div className="home-container09">
               <img
                 alt="image"
-                src="public/playground_assets/ryzyk.jpg"
+                src="public/images/ryzyk.jpg"
                 className="home-image4"
               />
               <span className="home-text14">Michał Ryżyk</span>
@@ -60,7 +60,7 @@ function IndexPage() {
             <div className="home-container10">
               <img
                 alt="image"
-                src="public/playground_assets/wojciechowski2.jpg"
+                src="public/images/wojciechowski2.jpg"
                 className="home-image5"
               />
               <span className="home-text16">Szymon Wojciechowski</span>
@@ -69,7 +69,7 @@ function IndexPage() {
             <div className="home-container11">
               <img
                 alt="image"
-                src="public/playground_assets/kaszuba.jpg"
+                src="public/images/kaszuba.jpg"
                 className="home-image6"
               />
               <span className="home-text18">Hubert Kaszuba</span>

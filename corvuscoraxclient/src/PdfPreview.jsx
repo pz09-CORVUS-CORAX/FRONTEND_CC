@@ -112,8 +112,30 @@ const PdfPreview = () => {
         setConversionStatus('pending');
         // given
         console.log('pdfPath received by & send in [conversionHandler]:', pdfPath);
+        // changelog; 17:47-08-05
+        const drillAngle = document.querySelector('input[name="drill_angle"]').value;
+        const drillActiveHeight = document.querySelector('input[name="drill_active_height"]').value;
+        const drillMovementSpeed = document.querySelector('input[name="drill_movement_speed"]').value;
+        // changelog; 17:58-08-05 #limits
+        if (drillAngle < 1 || drillAngle > 181) {
+            alert("Drill angle must be between 1 and 180");
+            return; // Prevent form submission
+        }
+        if (drillActiveHeight < 1 || drillActiveHeight > 10001) {
+            alert("Drill height must be between 1 and 10000");
+            return; // Prevent form submission
+        }
+        if (drillMovementSpeed < 1 || drillMovementSpeed > 10001) {
+            alert("Drill movement speed must be between 1 and 10000");
+            return; // Prevent form submission
+        }
+
+
         const formData = new FormData();
         formData.append('pdf_path', pdfPath);
+        formData.append('drill_angle', drillAngle);
+        formData.append('drill_active_height', drillActiveHeight);
+        formData.append('drill_movement_speed', drillMovementSpeed);
         try {
             console.log("URL being sent:", `${backendUrl}/pdf/upload-pdf`); 
             const response = await fetch(`${backendUrl}/pdf/convert-pdf`, {
@@ -127,7 +149,7 @@ const PdfPreview = () => {
             // edit 01:00-17-04
                 // const svgContent = await response.text();
                 const gcodeContent = await response.text();
-            //changelog 23:05-29-04
+            //changelog 23:05-29-04 [download]
                 // const blob = new Blob([svgContent], { type: 'image/svg+xml' });
                 const blob = new Blob([gcodeContent], {type: 'text/plain' });
                 const url = window.URL.createObjectURL(blob);
@@ -136,6 +158,8 @@ const PdfPreview = () => {
                 link.setAttribute('download', 'converted.gcode');
                 document.body.appendChild(link);
                 link.click();
+                // Changelog; 18:10-08-05 After download:
+                window.location.reload(); // Force a reload
             } else {
                 console.error("Conversion failed:", response.statusText);
             }
@@ -162,7 +186,12 @@ const PdfPreview = () => {
         
         {/* new log - pdfconversionbutton; 23:15-15-04 */}
         {validationStatus === 'success' && (
-            <button id="convert-button" onClick={handleConversion}>Convert to SVG & continue</button>
+            <>
+                <input type="number" name="drill_angle" placeholder="Drill Angle" />
+                <input type="number" name="drill_active_height" placeholder="Drill Active Height" />
+                <input type="number" name="drill_movement_speed" placeholder="Drill Movement Speed" />
+                <button id="convert-button" onClick={handleConversion}>Convert to SVG & continue</button>
+            </>
         )}
         
         {/* Only render if we have a `pdfPath` from the backend */}

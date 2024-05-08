@@ -60,7 +60,7 @@ function Navbar() {
                     <div class="home-container01">
                         <img
                             alt="image"
-                            src="/src/assets/images/BG1.jpg"
+                            src="/images/BG1.jpg"
                             class="home-image"
                         />
                         <div class="home-container02">
