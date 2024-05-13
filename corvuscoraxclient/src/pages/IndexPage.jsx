@@ -87,13 +87,13 @@ function IndexPage() {
             <span>Data</span> Opis
           </div>
           <div className="har">
-            <span>09.11.2023</span> Spotkanie organizacyjne
+            <span>09.11.2023</span> <span>Spotkanie organizacyjne</span>
           </div>
           <div className="har">
-            <span>14.11.2023</span> Przedstawienie tematów projektów
+            <span>14.11.2023</span> <span>Przedstawienie tematów projektów</span>
           </div>
           <div className="har">
-            <span>21.11.2023</span> Dyskusja na temat zaproponowanych projektów
+            <span>21.11.2023</span> <span>Dyskusja na temat zaproponowanych projektów</span>
           </div>
           <div className="har">
             <span>28.11.2023</span>
@@ -141,14 +141,13 @@ function IndexPage() {
             <span>Aktywne prace nad optymalizacją algorytmu skanującego znaki, prace modernistyczne nad serwisem</span>
           </div>
           <div className="har">
-            <span>13.03.2024</span>
-            <span>Rozpoczęcie prac nad wycinaniem po zewnętrznych krawędziach, projektowanie logotypu,  kontunacja prac nad dotychczasowymi zadaniami</span>
+            <span>13.03.2024</span> <span>Rozpoczęcie prac nad wycinaniem po zewnętrznych krawędziach, projektowanie logotypu, kontyunacja prac nad dotychczasowymi zadaniami</span>
           </div>
           <div className="har">
-            <span>27.03.2024</span> Dyskusja nt prezentacji projektu, utworzenie skryptu do exportu fontów z plików pdf, przydział nowych zadań dla zespołu 
+            <span>27.03.2024</span> <span>Dyskusja nt prezentacji projektu, utworzenie skryptu do exportu fontów z plików pdf, przydział nowych zadań dla zespołu </span>
           </div>
           <div className="har">
-            <span>04.04.2024</span> Aktualizacja oraz testy funkcji czyszczącej materiał żywiczny. Wykonaliśmy pierwsze działania z grawerunkiem tekstu z plików pdf. 
+            <span>04.04.2024</span> <span>Aktualizacja oraz testy funkcji czyszczącej materiał żywiczny. Wykonaliśmy pierwsze działania z grawerunkiem tekstu z plików pdf. </span>
           </div>
         </div>
       </div>
