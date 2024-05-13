@@ -1,0 +1,11 @@
+input[type="file"], input[type="number"] {
+  margin-bottom: 4%; 
+  padding: 8px;
+  border: 1px solid #ccc;  
+  border-radius: 4px; 
+  width: 250px;                    
+}
+
+.span-card {
+  margin-bottom: 5%;
+}

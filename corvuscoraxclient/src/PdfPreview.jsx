@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf'
+import './assets/styles/converter.css';
 import samplePDF from './pdfresizer.com-pdf-crop.pdf'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
@@ -186,12 +187,14 @@ const PdfPreview = () => {
         
         {/* new log - pdfconversionbutton; 23:15-15-04 */}
         {validationStatus === 'success' && (
-            <>
-                <input type="number" name="drill_angle" placeholder="Drill Angle" />
-                <input type="number" name="drill_active_height" placeholder="Drill Active Height" />
-                <input type="number" name="drill_movement_speed" placeholder="Drill Movement Speed" />
+            <div className='form-container'>
+                <div className='input-row'>
+                    <input type="number" name="drill_angle" placeholder="Drill Angle" />
+                    <input type="number" name="drill_active_height" placeholder="Drill Active Height" />
+                    <input type="number" name="drill_movement_speed" placeholder="Movement Speed" />
+                </div>
                 <button id="convert-button" onClick={handleConversion}>Convert to SVG & continue</button>
-            </>
+            </div>
         )}
         
         {/* Only render if we have a `pdfPath` from the backend */}
