@@ -19,7 +19,7 @@ function IndexPage() {
           <div className="home-container05">
             <img
               alt="opiekunCzarkowski"
-              src='public/images/Opiekun.jpg' // Adjust path if needed
+              src='images/Opiekun.jpg' // Adjust path if needed
               className="home-image1"
             />
             <span className="home-text06">Krzysztof Czarkowski</span>
@@ -29,7 +29,7 @@ function IndexPage() {
           <div className="home-container07">
               <img
                 alt="image"
-                src="public/images/biliniok.jpg"
+                src="images/biliniok.jpg"
                 className="home-image2"
               />
               <span className="home-text08">Jakub Biliński</span>
@@ -40,7 +40,7 @@ function IndexPage() {
             <div className="home-container08">
               <img
                 alt="image"
-                src="public/images/zeglin.jpg"
+                src="images/zeglin.jpg"
                 className="home-image3"
               />
               <span className="home-text12">Jakub Żegliński</span>
@@ -51,7 +51,7 @@ function IndexPage() {
             <div className="home-container09">
               <img
                 alt="image"
-                src="public/images/ryzyk.jpg"
+                src="images/ryzyk.jpg"
                 className="home-image4"
               />
               <span className="home-text14">Michał Ryżyk</span>
@@ -60,7 +60,7 @@ function IndexPage() {
             <div className="home-container10">
               <img
                 alt="image"
-                src="public/images/wojciechowski2.jpg"
+                src="images/wojciechowski2.jpg"
                 className="home-image5"
               />
               <span className="home-text16">Szymon Wojciechowski</span>
@@ -69,7 +69,7 @@ function IndexPage() {
             <div className="home-container11">
               <img
                 alt="image"
-                src="public/images/kaszuba.jpg"
+                src="images/kaszuba.jpg"
                 className="home-image6"
               />
               <span className="home-text18">Hubert Kaszuba</span>

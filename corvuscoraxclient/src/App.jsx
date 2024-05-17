@@ -10,7 +10,6 @@ import '../src/assets/styles/style.css'
 import '../src/assets/styles/Navbar.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <Navbar />

@@ -5,8 +5,8 @@ import samplePDF from './pdfresizer.com-pdf-crop.pdf'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 // const backendUrl = process.env.REACT_APP_BACKEND_API_URL;
-// const backendUrl = import.meta.env.VITE_API_URL;
-const backendUrl = import.meta.env.VITE_TEST_API_URL;
+const backendUrl = import.meta.env.VITE_API_URL;
+// const backendUrl = import.meta.env.VITE_TEST_API_URL;
 console.log("#1URL being sent:", `${backendUrl}/api/pdf/upload-pdf`);
 console.log("All Vite env variables:", import.meta.env); // For debugging
 
@@ -122,12 +122,12 @@ const PdfPreview = () => {
             alert("Drill angle must be between 1 and 180");
             return; // Prevent form submission
         }
-        if (drillActiveHeight < 1 || drillActiveHeight > 10001) {
-            alert("Drill height must be between 1 and 10000");
+        if (drillActiveHeight < 1 || drillActiveHeight > 201) {
+            alert("Drill height must be between 1 and 200");
             return; // Prevent form submission
         }
-        if (drillMovementSpeed < 1 || drillMovementSpeed > 10001) {
-            alert("Drill movement speed must be between 1 and 10000");
+        if (drillMovementSpeed < 1 || drillMovementSpeed > 1001) {
+            alert("Drill movement speed must be between 1 and 1000");
             return; // Prevent form submission
         }
 
@@ -189,11 +189,45 @@ const PdfPreview = () => {
         {validationStatus === 'success' && (
             <div className='form-container'>
                 <div className='input-row'>
-                    <input type="number" name="drill_angle" placeholder="Drill Angle" />
-                    <input type="number" name="drill_active_height" placeholder="Drill Active Height" />
-                    <input type="number" name="drill_movement_speed" placeholder="Movement Speed" />
+                    <div className='input-group'>
+                        <label htmlFor="drill_angle">Drill Angle</label>
+                        <input 
+                            type="number" 
+                            name="drill_angle" 
+                            id="drill_angle" 
+                            placeholder="Drill Angle" 
+                            defaultValue="90" 
+                            title="Example value: 90. Properly tested by us."
+                        />
+                    </div>
+                    <div className='input-group'>
+                        <label htmlFor="drill_active_height">Drill Active Height</label>
+                        <input 
+                            type="number" 
+                            name="drill_active_height" 
+                            id="drill_active_height" 
+                            placeholder="Drill Active Height" 
+                            defaultValue="30" 
+                            title="Example value: 30. Properly tested by us. The active height that needle is set from the top."
+                        />
+                    </div>
+                    <div className='input-group'>
+                        <label htmlFor="drill_movement_speed">Movement Speed</label>
+                        <input 
+                            type="number" 
+                            name="drill_movement_speed" 
+                            id="drill_movement_speed" 
+                            placeholder="Movement Speed" 
+                            defaultValue="30" 
+                            title="Example value: 30. Properly tested by us."
+                        />
+                    </div>
                 </div>
-                <button id="convert-button" onClick={handleConversion}>Convert to SVG & continue</button>
+                <p className="annotation">⚠⚠ THE GENERATED CODE USES 14000 RPM as SPINDLE SPEED ⚠⚠</p>
+                <br />
+                <p className="annotation">Example values, properly tested by us.</p>
+                <br />
+                <button id="convert-button" onClick={handleConversion}>Convert to GCode</button>
             </div>
         )}
         
