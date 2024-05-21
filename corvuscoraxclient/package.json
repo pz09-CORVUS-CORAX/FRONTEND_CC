@@ -14,9 +14,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ionic/react": "^8.1.2",
     "@react-pdf/renderer": "^3.4.2",
     "axios": "^1.6.8",
+    "bootstrap": "^4.3.1",
+    "global": "^4.4.0",
+    "ionicons": "^7.4.0",
+    "jquery": "^3.7.1",
+    "lightbox2": "^2.11.4",
     "react": "^18.2.0",
+    "react-18-image-lightbox": "^5.1.4",
     "react-dom": "^18.2.0",
     "react-pdf": "^7.7.1",
     "react-router-dom": "^6.23.0"

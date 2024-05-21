@@ -173,7 +173,7 @@ const PdfPreview = () => {
 
     const onDocumentLoadSuccess = ({ numPages }) => {
         // setNumPages(numPages);
-        console.log("PDF Loaded. Pages:", numPages);
+        console.log("Załadowano PDF. Strony:", numPages);
     }
 
     console.log("pdfPath Received[before MAIN return]:", pdfPath);
@@ -183,51 +183,51 @@ const PdfPreview = () => {
         <div>
         <input type="file" onChange={handleChange} />
         {uploadError && <p style={{ color: 'red' }}>{uploadError}</p>} 
-        {pdfIsLoading && <p>Loading PDF...</p>}
+        {pdfIsLoading && <p>Wczytuję PDF...</p>}
         
         {/* new log - pdfconversionbutton; 23:15-15-04 */}
         {validationStatus === 'success' && (
             <div className='form-container'>
                 <div className='input-row'>
                     <div className='input-group'>
-                        <label htmlFor="drill_angle">Drill Angle</label>
+                        <label htmlFor="drill_angle">Kąt Frezu</label>
                         <input 
                             type="number" 
                             name="drill_angle" 
                             id="drill_angle" 
                             placeholder="Drill Angle" 
-                            defaultValue="90" 
-                            title="Example value: 90. Properly tested by us."
+                            defaultValue="90"
+                            title="Przykładowa wartość: 90. Odpowiednio przez nas wytestowana. Kąt w jaki frez jest wyposażony."
                         />
                     </div>
                     <div className='input-group'>
-                        <label htmlFor="drill_active_height">Drill Active Height</label>
+                        <label htmlFor="drill_active_height">Aktywna wysokość Frezu</label>
                         <input 
                             type="number" 
                             name="drill_active_height" 
                             id="drill_active_height" 
                             placeholder="Drill Active Height" 
                             defaultValue="30" 
-                            title="Example value: 30. Properly tested by us. The active height that needle is set from the top."
+                            title="Przykładowa wartosć: 30. Wysokość na jaką frez musi opaść licząc od góry."
                         />
                     </div>
                     <div className='input-group'>
-                        <label htmlFor="drill_movement_speed">Movement Speed</label>
+                        <label htmlFor="drill_movement_speed">Prędkość Posuwu</label>
                         <input 
                             type="number" 
                             name="drill_movement_speed" 
                             id="drill_movement_speed" 
                             placeholder="Movement Speed" 
                             defaultValue="30" 
-                            title="Example value: 30. Properly tested by us."
+                            title="Przykładowa wartość: 30. Odpowiednio testowana przez nas"
                         />
                     </div>
                 </div>
-                <p className="annotation">⚠⚠ THE GENERATED CODE USES 14000 RPM as SPINDLE SPEED ⚠⚠</p>
+                <p className="annotation">⚠⚠ WYGENEROWANY KOD WYKORZYSTUJE 14000 RPM jako PRĘDKOŚĆ WRZECIONA ⚠⚠</p>
                 <br />
-                <p className="annotation">Example values, properly tested by us.</p>
+                <p className="annotation">Przykładowe wartości, dokładnie przez nas przetestowane.</p>
                 <br />
-                <button id="convert-button" onClick={handleConversion}>Convert to GCode</button>
+                <button id="convert-button" onClick={handleConversion}>Przekonwertuj na GCode</button>
             </div>
         )}
         
