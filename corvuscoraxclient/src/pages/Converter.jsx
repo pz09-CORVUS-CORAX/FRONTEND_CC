@@ -13,6 +13,7 @@ function Converter() {
                 <div className="converter">
                     <h1>WYGENERUJ GCODE DLA TWOJEGO DOKUMENTU</h1>
                     <div className='span-card'></div>
+                    <p>Zalecamy korzystanie z pdf'ów pochodzących z google docs</p>
                     <PdfPreview />
                 </div>
             </div>

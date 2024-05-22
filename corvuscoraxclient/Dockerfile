@@ -1,21 +1,23 @@
-# Use an official node image as the base image
-FROM node:14
+# Use an official Node.js runtime as a base image
+FROM node:18-alpine 
 
-# Create and change to the app directory
-WORKDIR /usr/src/app
+# Set the working directory in the container
+WORKDIR /app
 
-# Install app dependencies
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copy app source code
+# Copy the rest of your application code
 COPY . .
 
-# Build the app
+# Build your React app for production
 RUN npm run build
 
-# Serve the app
-CMD ["npx", "serve", "build"]
+# Expose the port your app runs on (usually 3000 for React apps)
+EXPOSE 3000
 
-# Expose the port the app runs on
-EXPOSE 5000
+# Start your React app
+CMD ["npm", "run", "dev"]

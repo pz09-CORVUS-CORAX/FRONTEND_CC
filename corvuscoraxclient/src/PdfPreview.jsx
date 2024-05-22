@@ -190,7 +190,7 @@ const PdfPreview = () => {
             <div className='form-container'>
                 <div className='input-row'>
                     <div className='input-group'>
-                        <label htmlFor="drill_angle">Kąt Frezu</label>
+                        <label htmlFor="drill_angle">Kąt Rozwarcia [stopnie]</label>
                         <input 
                             type="number" 
                             name="drill_angle" 
@@ -201,7 +201,7 @@ const PdfPreview = () => {
                         />
                     </div>
                     <div className='input-group'>
-                        <label htmlFor="drill_active_height">Aktywna wysokość Frezu</label>
+                        <label htmlFor="drill_active_height">Wysokość robocza [mm]</label>
                         <input 
                             type="number" 
                             name="drill_active_height" 
@@ -212,7 +212,7 @@ const PdfPreview = () => {
                         />
                     </div>
                     <div className='input-group'>
-                        <label htmlFor="drill_movement_speed">Prędkość Posuwu</label>
+                        <label htmlFor="drill_movement_speed">Prędkość Posuwu [mm/s]</label>
                         <input 
                             type="number" 
                             name="drill_movement_speed" 
