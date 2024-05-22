@@ -11,7 +11,7 @@ function Converter() {
         <div className="App">
             <div className="card">
                 <div className="converter">
-                    <h1>CREATE GCODE FROM PDF</h1>
+                    <h1>WYGENERUJ GCODE DLA TWOJEGO DOKUMENTU</h1>
                     <div className='span-card'></div>
                     <PdfPreview />
                 </div>

@@ -9,6 +9,7 @@ import IndexPage from './pages/IndexPage.jsx'
 import Documentation from './pages/Documentation.jsx'
 import Calendar from './pages/Calendar.jsx'
 import TeamReports from './pages/TeamReports.jsx'
+import Gallery from './pages/Gallery.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
@@ -20,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/team" element={<TeamReports />} />
       <Route path="/documentation" element={<Documentation />} />
       <Route path="/calendar" element={<Calendar />} />
-      {/* <Route path="/gallery" element={<Gallery />} /> */}
+      <Route path="/gallery" element={<Gallery />} />
       <Route path="/converter" element={<Converter />} />
     </Routes>
   </BrowserRouter>
