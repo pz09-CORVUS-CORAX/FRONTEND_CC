@@ -1,3 +1,4 @@
+/* Existing styles */
 input[type="file"], input[type="number"] {
   margin-bottom: 4%; 
   padding: 8px;
@@ -52,4 +53,39 @@ input[type="number"]:hover {
 #convert-button:active {
   background-color: #1e7e34; /* Even darker green when the button is clicked */
   transform: scale(1); /* Resets the button size when clicked */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  input[type="file"], input[type="number"] {
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  #convert-button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .input-group {
+    margin-bottom: 6%;
+  }
+
+  label {
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+
+  input[type="number"], input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #convert-button {
+    font-size: 18px;
+  }
 }

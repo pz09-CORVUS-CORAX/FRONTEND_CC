@@ -7,8 +7,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 // const backendUrl = process.env.REACT_APP_BACKEND_API_URL;
 const backendUrl = import.meta.env.VITE_API_URL;
 // const backendUrl = import.meta.env.VITE_TEST_API_URL;
-console.log("#1URL being sent:", `${backendUrl}/api/pdf/upload-pdf`);
-console.log("All Vite env variables:", import.meta.env); // For debugging
+// console.log("#1URL being sent:", `${backendUrl}/api/pdf/upload-pdf`);
+// console.log("All Vite env variables:", import.meta.env); // For debugging
 
 
 const PdfPreview = () => {
@@ -57,12 +57,12 @@ const PdfPreview = () => {
                 throw new Error(errorData.error || "Nieudane wczytywanie[handleSubmit]")
             }
             const { pdf_path } = await response.json();
-            console.log('pdfPath after setting in [handleSubmit]:', pdf_path);
+            // console.log('pdfPath after setting in [handleSubmit]:', pdf_path);
             setPdfPath(pdf_path);
             setPdfIsLoading(false)
 
             // test/log added: 16:31-10-04
-            console.log('pdfPath after setting in (2)[handleSubmit:]', pdf_path);
+            // console.log('pdfPath after setting in (2)[handleSubmit:]', pdf_path);
                 
             //changed log 18:10-10-04
             await validatePDF(file, pdf_path);
@@ -176,9 +176,9 @@ const PdfPreview = () => {
         console.log("Załadowano PDF. Strony:", numPages);
     }
 
-    console.log("pdfPath Received[before MAIN return]:", pdfPath);
-    console.log("file state/Received[before MAIN return]:", file);
-    console.log("validation status [before MAIN return", validationStatus);
+    // console.log("pdfPath Received[before MAIN return]:", pdfPath);
+    // console.log("file state/Received[before MAIN return]:", file);
+    // console.log("validation status [before MAIN return", validationStatus);
     return (
         <div>
         <input type="file" onChange={handleChange} />

@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port your app runs on (usually 3000 for React apps)
-EXPOSE 3000
+EXPOSE 5173
 
 # Start your React app
 CMD ["npm", "run", "dev"]
