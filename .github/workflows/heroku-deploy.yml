@@ -35,14 +35,14 @@ jobs:
         working-directory: ./corvuscoraxclient
 
       - name: Set image tag in environment file
-        run: echo "IMAGE_TAG=baszarinhi9816/corvuscoraxtest:latest" >> $GITHUB_ENV
+        run: echo "IMAGE_TAG=baszarinhi9816/cncodifier_front:latest" >> $GITHUB_ENV
 
       - name: Build and Push Docker image
         uses: docker/build-push-action@v2
         with:
           context: ./corvuscoraxclient # Specify the context as your app's directory
           file: ./corvuscoraxclient/Dockerfile # Specify path to your Dockerfile
-          push: true # Push the image to Docker Hub
+          push: false # Push the image to Docker Hub
           tags: ${{ env.IMAGE_TAG }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }} # Use a secure password secret   
