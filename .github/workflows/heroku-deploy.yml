@@ -20,10 +20,11 @@ jobs:
       - run: npm install
       - run: npm run build
 
-      - name: Deploy to Heroku
-        uses: akhilsens/heroku-docker-deploy@v3.12.12
+      - name: Build + Deploy to Heroku
+        uses: gonuit/heroku-docker-deploy@v1.3.3
         with:
+          email: ${{ secrets.HEROKU_EMAIL }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          heroku_buildpack: https://github.com/heroku/heroku-buildpack-nodejs.git
-          usedocker: true
+          dockerfile: Dockerfile
+          process_type: web
