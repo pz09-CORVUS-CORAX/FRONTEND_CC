@@ -1,0 +1,28 @@
+name: Deploy Front to Heroku.
+
+on:
+  push: 
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v3
+      - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+      - run: npm install
+      - run: npm run build
+
+      - name: Deploy to Heroku
+      uses: akhilsens/heroku-docker-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+        heroku_buildpack: https://github.com/heroku/heroku-buildpack-nodejs.git
+        usedocker: true
