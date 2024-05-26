@@ -25,5 +25,8 @@ COPY --from=build /app/corvuscoraxclient/dist /usr/share/nginx/html
 # Expose the port Nginx will listen on
 EXPOSE 8080
 
+# Modify the default Nginx config to listen on port 8080
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Start Nginx
-CMD ["nginx", "-g", "daemon off; listen 8080;"]
+CMD ["nginx", "-g", "daemon off;"]
