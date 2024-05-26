@@ -23,7 +23,7 @@ FROM nginx:stable-alpine
 COPY --from=build /app/corvuscoraxclient/dist /usr/share/nginx/html
 
 # Expose the port Nginx will listen on
-EXPOSE 80
+EXPOSE 8080
 
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
