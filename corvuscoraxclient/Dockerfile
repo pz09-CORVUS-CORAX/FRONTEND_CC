@@ -22,9 +22,6 @@ FROM nginx:stable-alpine
 # Copy the build output to the Nginx public directory
 COPY --from=build /app/corvuscoraxclient/dist /usr/share/nginx/html
 
-# Expose the port Nginx will listen on
-EXPOSE 8081
-
 # Remove the default Nginx config
 RUN rm /etc/nginx/conf.d/default.conf
 
