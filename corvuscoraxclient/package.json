@@ -9,7 +9,7 @@
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/ --outDir=dist",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "HOST=0.0.0.0 vite preview --port $PORT"
   },

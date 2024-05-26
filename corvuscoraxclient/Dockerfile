@@ -21,3 +21,15 @@ EXPOSE 5173
 
 # Start your React app
 CMD ["npm", "run", "preview"]
+
+# Stage 2: Nginx setup
+FROM nginx:stable-alpine
+
+# Copy the build output to the Nginx dir.
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+# Expose the port Nginx will listen on
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
