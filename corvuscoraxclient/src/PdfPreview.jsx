@@ -47,7 +47,7 @@ const PdfPreview = () => {
             const formData = new FormData();
             formData.append('file', file);
 
-            console.log("URL being sent:", `${backendUrl}/pdf/upload-pdf`); 
+            // console.log("URL being sent:", `${backendUrl}/pdf/upload-pdf`); 
             const response = await fetch(`${backendUrl}/pdf/upload-pdf`, {
                 method: 'POST',
                 body: formData,
@@ -138,7 +138,7 @@ const PdfPreview = () => {
         formData.append('drill_active_height', drillActiveHeight);
         formData.append('drill_movement_speed', drillMovementSpeed);
         try {
-            console.log("URL being sent:", `${backendUrl}/pdf/upload-pdf`); 
+            // console.log("URL being sent:", `${backendUrl}/pdf/upload-pdf`); 
             const response = await fetch(`${backendUrl}/pdf/convert-pdf`, {
                 method: 'POST',
                 body: formData,
