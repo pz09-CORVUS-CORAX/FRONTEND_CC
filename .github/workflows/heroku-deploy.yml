@@ -53,5 +53,6 @@ jobs:
           email: ${{ secrets.HEROKU_EMAIL }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          dockerfile: ./corvuscoraxfile/Dockerfile
+          dockerfile_directory: ./corvuscoraxclient # Correct path to Dockerfile directory
+          dockerfile_name: Dockerfile         # Specify Dockerfile name if different from the default (Dockerfile)
           process_type: web
