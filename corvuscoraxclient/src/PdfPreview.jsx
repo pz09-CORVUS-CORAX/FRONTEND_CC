@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf'
 import './assets/styles/converter.css';
-import samplePDF from './pdfresizer.com-pdf-crop.pdf'
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 // const backendUrl = process.env.REACT_APP_BACKEND_API_URL;
@@ -160,6 +159,7 @@ const PdfPreview = () => {
                 document.body.appendChild(link);
                 link.click();
                 // Changelog; 18:10-08-05 After download:
+                window.location.href = '/';
                 window.location.reload(); // Force a reload
             } else {
                 console.error("Conversion failed:", response.statusText);
@@ -235,14 +235,19 @@ const PdfPreview = () => {
         {/* {pdfPath && (  */}
         {pdfPath && validationStatus === 'success' && (
         // <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}> 
-        <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
-            {Array.from(new Array(numPages), (el, index) => (
-              <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-            ))}
-        </Document>
+        <div className='pdf-container'>
+            <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+                {Array.from(new Array(numPages), (el, index) => (
+                <Page
+                    key={`page_${index + 1}`}
+                    pageNumber={index + 1} 
+                    className="pdf-page"
+                />
+                ))}
+            </Document>
+        </div>
         )}
         </div>              
     );
 };
-
 export default PdfPreview; 

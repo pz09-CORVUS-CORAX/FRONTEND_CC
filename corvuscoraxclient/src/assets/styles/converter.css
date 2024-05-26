@@ -89,3 +89,25 @@ input[type="number"]:hover {
     font-size: 18px;
   }
 }
+
+/* PDF Preview */
+.pdf-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.pdf-page {
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+  .pdf-page {
+    width: 100%;
+  }
+}
