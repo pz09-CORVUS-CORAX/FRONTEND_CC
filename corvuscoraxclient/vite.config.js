@@ -12,7 +12,4 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
-  server: {
-    port: parseInt(process.env.PORT) || 5173,
-  },
 });
