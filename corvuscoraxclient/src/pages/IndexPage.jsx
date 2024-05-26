@@ -11,7 +11,11 @@ function IndexPage() {
         <div className="home-container03">
           <div className="home-project-container">
             <h6 className="home-text04"><span>Nasz Projekt</span></h6>
-            {/* Here provide a photo/logo + ref to a converter page */}
+            <img
+              alt="projectLogo"
+              src='images/logogo.png' // Adjust path if needed
+              className="home-image1"
+            />
           </div>
           <div className="home-container04">
             <h6 className="home-text04"><span>Nasz Zespół</span></h6>

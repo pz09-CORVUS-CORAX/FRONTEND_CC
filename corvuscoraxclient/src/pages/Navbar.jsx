@@ -4,6 +4,7 @@ import '../assets/styles/style_1.css';
 import '../assets/styles/style_2.css';
 import '../assets/styles/style.css';
 import '../assets/styles/Navbar.css';
+import logo from '/images/logogo.png'
 
 function Navbar() {
     return (
@@ -18,7 +19,14 @@ function Navbar() {
                                 <span className="icon-bar"></span>
                             </button>
                             {/* <a className="navbar-brand page-scroll" href="index.html">Z9</a> */}
-                            <Link className="navbar-brand page-scroll" to="/">Z9</Link>
+                            <Link className="navbar-brand page-scroll" to="/">
+                                <img src={logo} alt="Team Logo" 
+                                style={{
+                                    maxWidth: '40px',
+                                    maxHeight: '40px'
+                                }}
+                                />
+                            </Link>
                         </div>
 
                         <div className="collapse navbar-collapse navbar-ex1-collapse">
