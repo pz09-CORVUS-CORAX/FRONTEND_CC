@@ -23,7 +23,7 @@ FROM nginx:stable-alpine
 COPY --from=build /app/corvuscoraxclient/dist /usr/share/nginx/html
 
 # Expose the port Nginx will listen on
-EXPOSE 8080
+EXPOSE 8081
 
 # Remove the default Nginx config
 RUN rm /etc/nginx/conf.d/default.conf
