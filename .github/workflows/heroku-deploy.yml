@@ -46,6 +46,7 @@ jobs:
           tags: ${{ env.IMAGE_TAG }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }} # Use a secure password secret   
+          pull: true
     
       - name: Build + Deploy to Heroku
         uses: gonuit/heroku-docker-deploy@v1.3.3
