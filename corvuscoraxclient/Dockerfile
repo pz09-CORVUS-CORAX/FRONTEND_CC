@@ -26,4 +26,4 @@ COPY --from=build /app/corvuscoraxclient/dist /usr/share/nginx/html
 EXPOSE 8080
 
 # Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off; listen 8080;"]
