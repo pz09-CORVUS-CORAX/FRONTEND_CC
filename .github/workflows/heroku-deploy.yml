@@ -56,4 +56,3 @@ jobs:
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
           dockerfile_directory: ./corvuscoraxclient # Correct path to Dockerfile directory
           dockerfile_name: Dockerfile         # Specify Dockerfile name if different from the default (Dockerfile)
-          process_type: web
