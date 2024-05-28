@@ -1,2 +1,2 @@
 # FRONTEND_CC
-ŻAGIEL 
+WIDOK SERWISU DLA CNCodifier.pl
