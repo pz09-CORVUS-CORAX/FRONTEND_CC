@@ -36,6 +36,10 @@ function Navbar() {
                                     <Link className="page-scroll" to="/">Zespół 9</Link>
                                 </li>
                                 <li>
+                                    {/* <a class="page-scroll" href="gallery.html">Wypróbuj CNCodifier</a> */}
+                                    <Link className="page-scroll" to="/converter">Wypróbuj CNCodifier</Link>
+                                </li>
+                                <li>
                                     {/* <a className="page-scroll" href="about.html">O Projekcie</a> */}
                                     <Link className="page-scroll" to="/about">O Projekcie</Link>
                                 </li>
@@ -54,10 +58,6 @@ function Navbar() {
                                 <li>
                                     {/* <a class="page-scroll" href="gallery.html">Galeria i Multimedia</a> */}
                                     <Link className="page-scroll" to="/gallery">Galeria i Multimedia</Link>
-                                </li>
-                                <li>
-                                    {/* <a class="page-scroll" href="gallery.html">Wypróbuj CNCodifier</a> */}
-                                    <Link className="page-scroll" to="/converter">Wypróbuj CNCodifier</Link>
                                 </li>
                             </ul>
                         </div>

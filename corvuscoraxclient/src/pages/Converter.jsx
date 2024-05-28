@@ -11,9 +11,9 @@ function Converter() {
         <div className="App">
             <div className="card">
                 <div className="converter">
-                    <h1>WYGENERUJ GCODE DLA TWOJEGO DOKUMENTU</h1>
+                    <h1>WYGENERUJ G-CODE DLA TWOJEGO DOKUMENTU</h1>
                     <div className='span-card'></div>
-                    <p>Zalecamy korzystanie z pdf'ów pochodzących z google docs</p>
+                    <p>Zalecamy korzystanie z PDFów pochodzących z Google Docs</p>
                     <PdfPreview />
                 </div>
             </div>

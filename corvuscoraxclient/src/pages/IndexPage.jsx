@@ -153,6 +153,24 @@ function IndexPage() {
           <div className="har">
             <span>04.04.2024</span> <span>Aktualizacja oraz testy funkcji czyszczącej materiał żywiczny. Wykonaliśmy pierwsze działania z grawerunkiem tekstu z plików pdf. </span>
           </div>
+          <div className="har">
+            <span>10.04.2024</span> <span>Testowanie owali ze względu na kształt litery przy kącie freza 45 stopni (litera Q to dwa owale o różnych osiach -problemem jest prowadzenie wysokości freza, W - co najmniej drugie grubości kresek w literek s - łuki, przegięcie w jedną i drugą stronę). Dodanie zdjęć do galerii + wyłączenie galerii na czas poprawek</span>
+          </div>
+          <div className="har">
+            <span>17.04.2024</span> <span>Pracę związane z przebudową galerii umieszczonej na stronie oraz ulepszanie algorytmu służącego do wyznaczania wielu ścieżek zawartych w znakach z pliku pdf. Douczanie się wymaganych języków i bibliotek, m.in react.</span>
+          </div>
+          <div className="har">
+            <span>24.04.2024</span> <span>Nasze zadania skupiały się na nagrywaniu timelapse z działania frezarki oraz usprawnianiu strony dla serwisu. Kontynuacja prac nad galerią zdjęć.</span>
+          </div>
+          <div className="har">
+            <span>08.05.2024</span> <span>Rozpoczęcie pisania scenariusza do prezentacji projektu przez zespół, przeprowadzanie specjalistycznych testów na frezarce z wykorzystaniem szerokokątnych frezów, integracja strony zespołu z serwisem do obsługi plików PDF, optymalizacja kodu na stronie.</span>
+          </div>
+          <div className="har">
+            <span>15.05.2024</span> <span>Zakończenie sceneriausza i praca nad prezentacją. Poprawa dokumentacji dotycząca odlewów żywicznych.</span>
+          </div>
+          <div className="har">
+            <span>[22, 23, 27].05.2024</span> <span>Próby prezentacji, uzupełnianie scenariusza. Popraki dotyczące schematów wyświetlanych na slajdach.</span>
+          </div>
         </div>
       </div>
     </>

@@ -227,7 +227,7 @@ const PdfPreview = () => {
                 <br />
                 <p className="annotation">Przykładowe wartości, dokładnie przez nas przetestowane.</p>
                 <br />
-                <button id="convert-button" onClick={handleConversion}>Przekonwertuj na GCode</button>
+                <button id="convert-button" onClick={handleConversion}>Przekonwertuj na G-Code</button>
             </div>
         )}
         

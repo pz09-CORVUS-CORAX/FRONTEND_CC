@@ -45,7 +45,7 @@ function GalleryItem({ imageNumber }) {
 function Gallery() {
   return (
     <div className="gallerycontainer">
-      {[...Array(39)].map((_, index) => (
+      {[...Array(40)].map((_, index) => (
         <GalleryItem key={index + 1} imageNumber={index + 1} />
       ))}
     </div>

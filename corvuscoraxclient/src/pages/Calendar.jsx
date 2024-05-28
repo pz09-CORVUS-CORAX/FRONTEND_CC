@@ -24,7 +24,13 @@ const harData = [
   { date: '27.03.2024', content: 'Dyskusja nt prezentacji projektu, utworzenie skryptu do exportu fontów z plików pdf, przydział nowych zadań dla zespołu. Utworzenie i rozpoczęcie kodowania galerię zdjęć.'},
   { date: '04.04.2024', content: 'Aktualizacja oraz testy funkcji czyszczącej materiał żywiczny. Wykonaliśmy pierwsze działania z grawerunkiem tekstu z plików pdf. Osiągnięcie etapu końcowego z tworzeniem galerii zdjęć na stronę projektu.' },
   { date: '10.04.2024', content: 'Aktualizacja harmonogramu i przebiegu prac na stronie + dodanie nowych zdjęć na stronę.' },
-  // Proszę dodawać pozostałe rekordy tutaj
+  { date: '17.04.2024', content: 'Kontynuowaliśmy prace nad przebudową galerii na stronie, skupiając się na ulepszeniu jej wyglądu i funkcjonalności. Pracowaliśmy nad udoskonaleniem algorytmu wyznaczania ścieżek w znakach z pliku pdf. Przeprowadziliśmy testy z różnymi typami plików pdf i wprowadziliśmy zmiany w algorytmie, aby poprawić jego dokładność i wydajność. Poświęciliśmy czas na douczanie się nowych języków i bibliotek, które mogą być przydatne w naszych projektach. Skupiliśmy się w szczególności na bibliotece react, która może nam pomóc w tworzeniu bardziej dynamicznych i interaktywnych elementów strony internetowej.' },
+  { date: '24.04.2024', content: 'Nagranie timelapse z działania frezarki: Rozpoczęliśmy przygotowania do nagrania, ustawiając odpowiednie kamery i oprogramowanie do timelapse. Uruchomiliśmy frezarkę i rozpoczęliśmy nagrywanie. Monitorowaliśmy proces nagrywania, dbając o jakość i stabilność obrazu. Zakończyliśmy nagrywanie po zakończeniu pracy frezarki, sprawdzając uzyskany materiał wideo. Usprawnianie strony dla serwisu: Skoncentrowaliśmy się na optymalizacji strony pod kątem szybkości ładowania i responsywności. Przeprowadziliśmy analizę wydajności i wydzieliliśmy obszary wymagające poprawek. Wprowadziliśmy niezbędne zmiany w kodzie strony, dbając o zachowanie integralności jej wyglądu i funkcjonalności. Testowaliśmy zmiany na różnych urządzeniach i przeglądarkach, upewniając się o ich poprawności i skuteczności. Dokonaliśmy finalnych poprawek i przetestowaliśmy stronę, aby upewnić się, że spełnia wszystkie nasze oczekiwania. Dokonywane są dalsze usprawienia galerii, jednak ustaliliśmy że skończymy nad nią prace po majówce.' },
+  { date: '08.05.2024', content: 'Ukończenie pracy nad stroną internetową. Próba rozpoczęcia frezowania, zakończona wykryciem awarii frezarki.' },
+  { date: '15.05.2024', content: 'Zakończenie sceneriausza i praca nad prezentacją. Poprawa dokumentacji dotycząca odlewów żywicznych.' },
+  { date: '{22, 23, 27}.05.2024', content: 'Próby prezentacji, uzupełnianie scenariusza. Popraki dotyczące schematów wyświetlanych na slajdach.' },
+
+  // Proszę dodawać pozostałe rekordy 
 ];
 
 function HarEntry({ date, content }) {

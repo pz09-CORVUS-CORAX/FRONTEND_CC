@@ -15,7 +15,7 @@ function DownloadItem({ fileType, filePath, fileName, description }) {
               <img src={`images/${fileType}.png`} height="50px" alt={fileType} /> 
             </a>
           </div>
-          <p style={{ textAlign: fileType === 'git' ? 'center' : 'center', fontSize: 'small', margin: '5px' }}>
+          <p style={{ textAlign: fileType === 'git' ? 'left' : 'left', fontSize: 'small', margin: '5px' }}>
             {description}
           </p>
         </div>
@@ -27,9 +27,12 @@ function DownloadItem({ fileType, filePath, fileName, description }) {
 function Documentation() {
   const downloadItems = [ // Array to store download item data
     { fileType: 'cpp', filePath: 'functions/czyszczenie.cpp', fileName: 'Czyszczenie.cpp', description: 'Funkcja do wyrównywania powierzchni materiału' },
-    { fileType: 'pdf', filePath: 'functions/instrukcja.pdf', fileName: 'Instrukcja.pdf', description: 'Dokumentacja z instrukcją do tworzenia bloków żywicznych'},
+    { fileType: 'pdf', filePath: 'functions/Instrukcja.pdf', fileName: 'Instrukcja.pdf', description: 'Dokumentacja z instrukcją do tworzenia bloków żywicznych'},
+    { fileType: 'pdf', filePath: 'functions/prezentacja_1.pdf', fileName: 'prezentacja_1.pdf', description: 'Rozbudowana prezentacja projektu' },
     { fileType: 'git', filePath: 'https://github.com/pz09-CORVUS-CORAX', fileName: '', description: 'Strona github projektu' },
-    { fileType: 'zip', filePath: 'functions/generator.zip', fileName: 'generator.zip', description: 'Dokumentacja generatora GCode' },
+    { fileType: 'git', filePath: 'https://nraynaud.github.io/webgcode/', fileName: '', description: 'Rekomendowany Emulator G-Code' },
+    { fileType: 'zip', filePath: 'functions/G-CODE.zip', fileName: 'G-CODE.zip', description: 'Przykádowe prace stworzone przy pomocy naszego serwisu' },
+    { fileType: 'zip', filePath: 'functions/generator.zip', fileName: 'generator.zip', description: 'Dokumentacja generatora G-Code' },
     { fileType: 'zip', filePath: 'functions/API.zip', fileName: 'API.zip', description: 'Dokumentacja dla api serwisowego' },
   ];
 
