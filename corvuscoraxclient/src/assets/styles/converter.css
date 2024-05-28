@@ -1,0 +1,113 @@
+/* Existing styles */
+input[type="file"], input[type="number"] {
+  margin-bottom: 4%; 
+  padding: 8px;
+  border: 1px solid #ccc;  
+  border-radius: 4px; 
+  width: 250px;                    
+}
+
+.input-group {
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+label {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+input[type="number"]:hover {
+  cursor: pointer;
+}
+
+.span-card {
+  margin-bottom: 5%;
+}
+
+/* button styling */
+#convert-button {
+  background-color: #28a745; /* Vibrant green color */
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+#convert-button:hover {
+  background-color: #218838; /* Slightly darker green on hover */
+  transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+#convert-button:active {
+  background-color: #1e7e34; /* Even darker green when the button is clicked */
+  transform: scale(1); /* Resets the button size when clicked */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  input[type="file"], input[type="number"] {
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  #convert-button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .input-group {
+    margin-bottom: 6%;
+  }
+
+  label {
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+
+  input[type="number"], input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #convert-button {
+    font-size: 18px;
+  }
+}
+
+/* PDF Preview */
+.pdf-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.pdf-page {
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+  .pdf-page {
+    width: 100%;
+  }
+}

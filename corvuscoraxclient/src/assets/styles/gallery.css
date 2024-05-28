@@ -1,0 +1,124 @@
+.gallerycontainer{
+  width: 100%;
+  margin: auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px; /* Consistent gap for all screen sizes */
+  width: 100%;
+  height: 100%;
+  }
+  .gallerycontainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .gallerycontainer a{
+    width: 100%;
+    height: 25rem;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .gallerycontainer a i{
+    color:rgba(255,255,255,.6);
+   font-size: 3rem;
+    position: relative;
+    z-index: 100;
+    padding: 1rem 3rem;
+    border: 2px solid rgba(255,255,255,.6);
+    border-radius: .4rem;
+    transition: opacity .5s;
+  
+  }
+  .gallerycontainer a::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,.0);
+    opacity: 0;
+    transition: opacity .5s;
+  
+     
+   }
+  
+   .gallerycontainer a:hover i,
+   .gallerycontainer a:hover::before{
+    opacity: 1;
+   }
+   .img1{
+    grid-area: img-1;
+    background-image: url("../../public/images/1.jpg");
+   }
+   .img2{
+    grid-area: img-2;
+    background-image: url("../../public/images/2.jpg");
+   }
+   .img3{
+    grid-area: img-3;
+    background-image: url("zdjecia/3.jpg");
+   }
+   .img4{
+    grid-area: img-4;
+    background-image: url("zdjecia/4.jpg");
+   }
+   .img5{
+    grid-area: img-5;
+    background-image: url("zdjecia/5.jpg");
+   }
+   .img6{
+    grid-area: img-6;
+    background-image: url("zdjecia/6.jpg");
+   }
+   .img7{
+    grid-area: img-7;
+    background-image: url("zdjecia/7.jpg");
+   }
+   .img8{
+    grid-area: img-8;
+    background-image: url("zdjecia/8.jpg");
+   }
+   .img9{
+    grid-area: img-9;
+    background-image: url("zdjecia/9.jpg");
+   }
+   .img10{
+    grid-area: img-10;
+    background-image: url("zdjecia/10.jpg");
+   }
+   .img11{
+    grid-area: img-11;
+    background-image: url("zdjecia/11.jpg");
+   }
+   .img12{
+    grid-area: img-12;
+    background-image: url("zdjecia/12.jpg");
+   }
+   
+  @media screen and (max-width: 900px){ */
+    .gallerycontainer {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller minimum column width */
+    }
+      .gallerycontainer a{
+        height: 20rem;
+      }
+      .img1{
+        min-height: 41.5rem;
+  
+      }
+      .img6{
+        min-height: 20rem;
+      }
+  
+    
+   }
+  
